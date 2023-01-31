@@ -1,0 +1,46 @@
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Create New Product</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<%= form_with model: @product do |form| %>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Create New Product</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div>
+            <%= form.label :category %><br>
+            <%= form.select :category_id, Category.all.map {|n| [n.name, n.id]}%>
+          </div>
+
+          <div>
+            <%= form.label :name %><br>
+            <%= form.text_field :name %>
+          </div>
+
+          <div>
+            <%= form.label :dose %><br>
+            <%= form.text_area :dose %>
+          </div>
+
+          <div>
+            <%= form.label :price %><br>
+            <%= form.text_area :price %>
+          </div>
+
+          <div>
+            <%= form.label :Medicine_Picture %><br>
+            <%= form.file_field :med_pic %>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">
+            <%= form.submit %>
+        </button>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>

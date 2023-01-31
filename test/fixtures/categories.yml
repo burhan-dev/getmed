@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  injection: 1
+  syrup: 1
+  pills: 1
+
+two:
+  injection: 1
+  syrup: 1
+  pills: 1

@@ -1,0 +1,11 @@
+<h1><%= @product.name %></h1>
+<h2><%= @product.dose %></h2>
+<h2><%= @product.price %></h2>
+<%= image_tag @product.med_pic.variant(resize_to_limit:[200, 200]) %>
+
+
+<ul>
+	<li><%= link_to 'Edit', edit_product_path(@product) %></li>
+	<li><%= link_to 'Delete', product_path(@product), method: :delete %></li>
+	<li><%= link_to 'Back', products_path %></li>
+</ul>

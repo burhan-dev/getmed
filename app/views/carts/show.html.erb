@@ -1,0 +1,31 @@
+<center><h2 class="mt-5">Carts</h2></center>
+<div class="container mt-5">
+	<div class="row">
+		<% @cart.items.each do |item| %>
+			<div class="col-sm-4">
+				<ul class="list-unstyled">
+			    <li>
+			    	<p><strong>product: </strong><%= item.product.name %></p>
+			    	<p><strong>Price: </strong><%= item.product.price %></p>
+			    	<p><strong>Quantity: </strong><%= item.quantity %></p>
+			    	<p><strong>Price: </strong><%= item.total_price %></p>
+			  	</li>
+	    	<ul class="list-unstyled">
+		      <li>
+		        <%= link_to "+", item_add_path(:id => item), class:"btn btn-info", method: :post %>
+		        <%= link_to "-", item_reduce_path(:id => item), class:"btn btn-info",  method: :post %>
+		      </li>
+		      <li>
+		        <%= link_to "Remove item", item_path(item), class:"btn btn-danger mt-2", method: :delete %>
+		      </li>
+	    		</ul>
+				</ul>
+			</div>
+		<% end %>
+	</div>
+</div>
+<h3 class="mt-5">Total Price(PKR): <%= @cart.sub_total %></h3>
+
+<%= link_to "Proceed to checkout", new_order_path, class:"btn btn-dark mt-3" %><br>
+
+<%= link_to "Empty cart", cart_path(@current_cart), class:"btn btn-danger mt-3 mb-5", method: :delete, data: {confirm: "Are you sure?"} %>

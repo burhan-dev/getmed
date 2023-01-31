@@ -1,0 +1,8 @@
+<h1><%= @category.name %></h1>
+<h2><%= @category.discription %></h2>
+
+<ul>
+	<li><%= link_to 'Edit', edit_category_path(@category) %></li>
+	<li><%= link_to 'Delete', category_path(@category), method: :delete %></li>
+	<li><%= link_to 'Back', categories_path %></li>
+</ul>
